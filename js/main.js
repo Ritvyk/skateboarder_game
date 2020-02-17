@@ -50,3 +50,10 @@ document.body.onkeyup = function (e) {
         document.getElementById("player-model-img").src="./character/standing.png";
     }
 }
+document.body.ontouchstart=function()
+{
+    $("#player-model").animate({ bottom: "80px" }, "fast");
+    // $("#player-model").animate({ left: "10px" }, "fast");
+    $("#player-model").animate({ bottom: "0px" }, "slow");
+    console.log("touched");
+}
