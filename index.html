@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Skateboarder | Ritvik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- body here -->
+    <div class="wrapper">
+        <div class="scoreboard">
+            <p class="p-0 m-0 font-weight-bold">Score : <span id="score" class="text-danger">0</span></p>
+        </div>
+        <!-- game window starts here -->
+        <div class="game-window d-flex flex-column justify-content-end">
+            <!-- backdrop starts here -->
+                <div class="backdrop-game-window">
+                    
+                </div>
+            <!-- backdrop ends here -->
+            <!-- path starts here -->
+            <div class="game-path">
+                <div class="player" id="player-model">
+                    <img src="./character/standing.png" alt="player" id="player-model-img" width="20px;" height="30px;"  class="player-model">
+                </div>
+                <div class="obstacles-container">
+                    <div id="obstacle-container" class="runway d-flex justify-content-end align-items-end">
+                        <!-- <div class="obstacle" id="obstacle">
+
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- path ends here -->
+        </div>
+        <!-- game window ends here -->
+        <div class="options d-flex justify-content-center align-items-center mt-2">
+            <button onclick="startGame()" class="startGame btn btn-sm btn-warning">Start Game</button> <button class="btn btn-sm btn-primary ml-2">Restart</button>
+            
+        </div>
+        <p class="p-3 m-0 ">
+            <i class="fa fa-info"></i> Use space bar to jump.
+        </p>
+    </div>
+    <!-- body ends here -->
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha256-KsRuvuRtUVvobe66OFtOQfjP8WA2SzYsmm4VPfMnxms=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
+<script src="./js/main.js"></script>

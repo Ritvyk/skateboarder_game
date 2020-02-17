@@ -1,0 +1,70 @@
+/* date : 16-02-2020 */
+*{
+    padding:0px;
+    margin:0px;
+}
+.wrapper{
+    background-color: beige;
+}
+.game-window{
+    border:dotted 1px grey;
+    height:250px;
+    background-image: url("../img/clouds.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.scoreboard{
+
+}
+/* .backdrop-game-window{
+    height:200px;
+    width: 100%;
+} */
+.game-path{
+    position: relative;
+    /* background-color: white */
+}
+.player{
+    position: absolute;
+    bottom:0px;
+    z-index:100;
+}
+.player-model{
+    height:40px;
+}
+.obstacles-container{
+    height:20px;
+    /* width:310px; */
+background-color: white;
+position:relative;
+top:0px;
+}
+.obstacle{
+    border:solid 1px black;
+    /* background-color: chocolate; */
+    /* float: right; */
+    width: 20px;
+    height: 30px;
+    right:0px;
+    display: inline-block;
+    position: relative;
+    bottom:0px;
+}
+.runway{
+    height:20px;
+    position: relative;
+    right:0px;
+    /* width:150px; */
+    align-items: flex-end;
+    background-color: white;
+    /* border:solid 1px white; */
+    /* overflow-y:scroll ; */
+    /* overflow: hidden; */
+}
+.runway::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
