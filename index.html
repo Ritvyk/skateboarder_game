@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Skateboarder | Ritvik</title>
+    <meta name="content" content="A timepass game developed using JS , taking inspiration from chrome's dinosaur game">
+    <meta name="author" content="Designed & Developed By -> Ritvik ">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -27,7 +29,7 @@
             <!-- path starts here -->
             <div class="game-path">
                 <div class="player" id="player-model">
-                    <img src="./character/standing.png" alt="player" id="player-model-img" width="20px;" height="30px;"  class="player-model">
+                    <img src="./character/standing.png" alt="player" id="player-model-img" width="30px;" height="30px;"  class="player-model">
                 </div>
                 <div class="obstacles-container">
                     <div id="obstacle-container" class="runway d-flex justify-content-end align-items-end">
@@ -41,11 +43,10 @@
         </div>
         <!-- game window ends here -->
         <div class="options d-flex justify-content-center align-items-center mt-2">
-            <button onclick="startGame()" class="startGame btn btn-sm btn-warning">Start Game</button> <button class="btn btn-sm btn-primary ml-2">Restart</button>
-            
+            <button onclick="startGame()" class="startGame btn btn-sm btn-warning">Start Game</button> <button class="btn btn-sm btn-primary ml-2" onclick="window.location.reload();">Restart</button>
         </div>
         <p class="p-3 m-0 ">
-            <i class="fa fa-info"></i> Use space bar to jump.
+            <i class="fa fa-info"></i> Use space bar to jump or Tap on the screen to Jump.
         </p>
     </div>
     <!-- body ends here -->
