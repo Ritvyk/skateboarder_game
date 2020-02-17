@@ -1,14 +1,21 @@
 var finalScore=0;
+if(localStorage.getItem("skate_scores")!=null)
+{
+    var scores=JSON.parse(localStorage.getItem("skate_scores"));
+    document.getElementById("high_scores").innerText=scores.high_scores;
+}
 function startObstacles() {
-    var colors = ["orange", "pink", "green", "violet", "brown", "white"];
-    const rc = parseInt(Math.random() * 5);
-    var colorName = colors[rc];
+    
+    // var colors = ["orange", "pink", "green", "violet", "brown", "white"];
+    // const rc = parseInt(Math.random() * 5);
+    // var colorName = colors[rc];
     var height = (Math.random() * 20) + 15;
     var move = 10;
-    var obstacle = document.createElement("div");
+    var obstacle = document.createElement("img");
+    obstacle.src="./img/brickwall.jpg";
     obstacle.style.height = height;
     obstacle.className = "obstacle";
-    obstacle.style.backgroundColor = colorName;
+    // obstacle.style.backgroundColor = colorName;
     var container = document.getElementById("obstacle-container");
     // console.log(container.children);
     container.appendChild(obstacle);
@@ -20,6 +27,19 @@ function startObstacles() {
             "y":playerPosition.y
         }
         return cord;
+    }
+    function storeScore(score)
+    {
+        var obj={
+            "high_scores":score
+        }
+        if (localStorage.getItem("skate_scores") === null) {
+            var data = {};
+            localStorage.setItem("skate_scores", JSON.stringify(data));
+        }
+        var data = JSON.parse(localStorage.getItem("skate_scores"));
+        // data.push(obj);
+        localStorage.setItem("skate_scores", JSON.stringify(obj));
     }
     function moveLeft() {
         obstacle.style.right = move + "px";
@@ -33,12 +53,10 @@ function startObstacles() {
         if(obstaclePosition.x<currentPlayerPostion.x+20 && obstaclePosition.x>currentPlayerPostion.x )
         {
             // again checking if the player is at the postion or not !!
-            // if(currentPlayerPostion.y>obstac)
-            console.log(currentPlayerPostion.y+30);
-            console.log(obstacle.clientHeight);
-            console.log("obstacle Y:"+obstaclePosition.y);
             if(currentPlayerPostion.y+30 > obstaclePosition.y)
             {
+                document.getElementById("game_over_music").play();
+                storeScore(finalScore);
                 alert("Oops! Game Over Your Final Score : "+finalScore);
                 window.location.reload();
                 clearInterval(moveLeft);
@@ -49,10 +67,21 @@ function startObstacles() {
     setInterval(moveLeft, 100);
 }
 
-
+function levelUp(){
+    var currentLevel=parseInt(document.getElementById("level").innerText);
+    document.getElementById("level").innerText=currentLevel+1;
+    startObstacles();
+}
 function startGame() {
 
+   
     alert("Game Has Been Started !");
+    var back_music=document.getElementById("back_music");
+    back_music.volume=0.1;
+    back_music.play();
+    //background music...
+   
+    
     function increaseScore()
     {
         var score=parseInt(document.getElementById("score").innerText)+1;
@@ -69,6 +98,7 @@ function startGame() {
 }
 document.body.onkeyup = function (e) {
     if (e.keyCode == 32) {
+        document.getElementById("jump_music").play();
         $("#player-model").animate({ bottom: "80px" }, "fast");
         // $("#player-model").animate({ left: "10px" }, "fast");
         $("#player-model").animate({ bottom: "0px" }, "slow");

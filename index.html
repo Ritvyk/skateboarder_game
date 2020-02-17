@@ -14,10 +14,15 @@
 </head>
 
 <body>
+    <div class="d-none">
+        <audio src="./music/background_music.mp3" id="back_music" loop="true" type="audio/mpeg"></audio>
+        <audio src="./music/game_over.mp3" id="game_over_music"  type="audio/mpeg"></audio>
+        <audio src="./music/jump.mp3" id="jump_music"  type="audio/mpeg"></audio>
+    </div>
     <!-- body here -->
     <div class="wrapper">
         <div class="scoreboard">
-            <p class="p-0 m-0 font-weight-bold">Score : <span id="score" class="text-danger">0</span></p>
+            <p class="p-0 m-0 font-weight-bold text-center">Score : <span id="score" class="text-danger">0</span> High Score : <span id="high_scores" class="text-primary"></span></p>
         </div>
         <!-- game window starts here -->
         <div class="game-window d-flex flex-column justify-content-end">
@@ -44,6 +49,7 @@
         <!-- game window ends here -->
         <div class="options d-flex justify-content-center align-items-center mt-2">
             <button onclick="startGame()" class="startGame btn btn-sm btn-warning">Start Game</button> <button class="btn btn-sm btn-primary ml-2" onclick="window.location.reload();">Restart</button>
+            <button class="btn btn-sm btn-danger ml-2" onclick="levelUp();">Level Up! <span id="level" class="text-warning font-weight-bold">1</span> </button>
         </div>
         <p class="p-3 m-0 ">
             <i class="fa fa-info"></i> Use space bar to jump or Tap on the screen to Jump.
