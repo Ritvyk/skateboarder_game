@@ -33,13 +33,18 @@ function startObstacles() {
         var obj={
             "high_scores":score
         }
-        if (localStorage.getItem("skate_scores") === null) {
-            var data = {};
-            localStorage.setItem("skate_scores", JSON.stringify(data));
+        if(localStorage.getItem("skate_scores")!=null)
+        {
+            var data = JSON.parse(localStorage.getItem("skate_scores"));
+            if(data.high_scores<score)
+            {
+                localStorage.setItem("skate_scores", JSON.stringify(obj));
+            }
         }
-        var data = JSON.parse(localStorage.getItem("skate_scores"));
+        else{
+            localStorage.setItem("skate_scores", JSON.stringify(obj));
+        }
         // data.push(obj);
-        localStorage.setItem("skate_scores", JSON.stringify(obj));
     }
     function moveLeft() {
         obstacle.style.right = move + "px";
@@ -115,8 +120,9 @@ document.body.onkeyup = function (e) {
 }
 document.body.ontouchstart=function()
 {
+    document.getElementById("jump_music").play();
     $("#player-model").animate({ bottom: "80px" }, "fast");
     // $("#player-model").animate({ left: "10px" }, "fast");
     $("#player-model").animate({ bottom: "0px" }, "slow");
-    console.log("touched");
+    // console.log("touched");
 }
